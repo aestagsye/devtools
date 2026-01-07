@@ -86,4 +86,4 @@ git add . -> git commit -> git push
 
 https://mentee-power.xl.ru/learn/MCIneBj4KkyH-GIRCspFvA/theory
 
-#testchange
+[![Java CI with Checkstyle and JaCoCo](https://github.com/aestagsye/devtools/actions/workflows/main.yml/badge.svg)](https://github.com/aestagsye/devtools/actions/workflows/main.yml)
