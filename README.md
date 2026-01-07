@@ -85,3 +85,5 @@ git add . -> git commit -> git push
 Источник: https://google.github.io/styleguide/javaguide.html#s4.1.1-braces-always-used
 
 https://mentee-power.xl.ru/learn/MCIneBj4KkyH-GIRCspFvA/theory
+
+[![Java CI with Checkstyle and JaCoCo](https://github.com/aestagsye/devtools/actions/workflows/main.yml/badge.svg)](https://github.com/aestagsye/devtools/actions/workflows/main.yml)
