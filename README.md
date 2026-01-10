@@ -1,4 +1,29 @@
 [![Java CI with Checkstyle and JaCoCo](https://github.com/aestagsye/devtools/actions/workflows/main.yml/badge.svg)](https://github.com/aestagsye/devtools/actions/workflows/main.yml)
+## Технологический стек проекта
+
+### Языки и платформы
+- **Java 25 LTS** — основной язык разработки
+- **Gradle 8.x** — система сборки (через Gradle Wrapper)
+
+### Инструменты качества кода
+- **Checkstyle** — статический анализ стиля кода
+    - Конфигурация: `config/checkstyle/checkstyle.xml`
+    - Запуск: `./gradlew checkstyleMain`
+- **JUnit 5** — фреймворк тестирования
+    - Запуск: `./gradlew test`
+
+### CI/CD
+- **GitHub Actions** — автоматическая проверка PR
+    - Checkstyle на каждый коммит
+    - Тесты на каждый коммит
+    - Конфигурация: `.github/workflows/`
+
+### Правила кода
+- Стиль: Google Java Style Guide (через Checkstyle)
+- Коммиты: Conventional Commits (`feat:`, `fix:`, `docs:`)
+- Ветки: `feature/DVT-X` для задач, `master` — основная
+- Pull Request: обязателен для слияния в master
+
 # Quick Start:
 1. ./gradlew run
 2. ./gradlew test
@@ -595,6 +620,234 @@ LOG.info("Status: " + (isReady ? "sprint ready" : "backlog first"));
 **Сравнение:**
 Deepseek оказался более строгим по сравнению с ChatGPT, и нашел больше ошибок в стиле кода, логике и производительности,
 в то время как ChatGPT нашел лишь плюсы. Думаю в этом случае дипсик оказался полезнее, ведь он выявил ошибки
+
+## Личный глоссарий терминов Dev Tools
+
+### Структура глоссария
+
+Каждый термин содержит:
+- **RU / EN** — русское и английское название
+- **Определение** — краткое (1-2 предложения) объяснение термина
+- **Контекст использования** — где и когда применяется
+- **Пример** — конкретное применение в коде/команде/документации
+- **Источник** — ссылка на официальную документацию
+
+---
+
+### Категория: Java-экосистема
+
+#### JDK — Java Development Kit
+
+**Определение:** Development environment for building applications using the Java programming language. Includes compiler (javac), archiver (jar), documentation generator (javadoc), and other tools.
+
+**Контекст использования:** JDK необходим для компиляции Java-кода в байт-код и создания исполняемых JAR-файлов. Без JDK невозможно собрать Java-проект.
+
+**Пример:** После установки JDK выполняем `java -version` для проверки версии. В IntelliJ IDEA настраиваем Project SDK: File → Project Structure → Project → SDK → выбираем JDK 25.
+
+**Источник:** https://docs.oracle.com/en/java/javase/21/docs/
+
+---
+
+#### JRE — Java Runtime Environment
+
+**Определение:** An environment that provides the libraries, Java Virtual Machine, and other components required to run Java applications.
+
+**Контекст использования:** Used to execute Java applications without providing development tools such as compilers.
+
+**Пример:** CI-сервер запускает собранное Java-приложение devtools с использованием JRE.
+
+**Источник:** https://docs.oracle.com/en/java/javase/
+
+---
+
+####  JVM - Java Virtual Machine
+
+**Определение:** An abstract computing machine that enables a computer to run Java programs by executing Java bytecode.
+
+**Контекст использования:** Responsible for memory management, execution of bytecode, and platform independence of Java applications.
+
+**Пример:** JVM выполняет байткод devtools-приложения при запуске через Gradle.
+
+**Источник:** https://docs.oracle.com/javase/specs/
+
+---
+
+####  Gradle Wrapper — Gradle Wrapper
+
+**Определение:** A mechanism that allows a project to be built with a specific Gradle version without requiring Gradle to be installed globally.
+
+**Контекст использования:** Ensures consistent build behavior across different environments and developers.
+
+**Пример:** Проект devtools использует Gradle Wrapper для сборки без установки Gradle вручную.
+
+**Источник:** https://docs.gradle.org/current/userguide/gradle_wrapper.html
+
+---
+
+####  Build Tool — Build Tool
+
+**Определение:** Software that automates the process of compiling source code, managing dependencies, and producing executable artifacts.
+
+**Контекст использования:** Used to standardize and automate project builds.
+
+**Пример:** Gradle используется как Build Tool в проекте devtools.
+
+**Источник:** https://docs.gradle.org/current/userguide/userguide.html
+
+---
+
+####  Dependency — Dependency
+
+**Определение:** An external library or module that a project requires to compile, run, or test.
+
+**Контекст использования:** Declared in build configuration files and resolved automatically by the build tool.
+
+**Пример:** JUnit добавлен как dependency для написания тестов в devtools.
+
+**Источник:** https://docs.gradle.org/current/userguide/dependency_management.html
+
+---
+
+####  Artifact — Artifact
+
+**Определение:** A file produced by a build process, such as a JAR or WAR, that can be published and reused.
+
+**Контекст использования:** Represents the output of a build and can be stored in repositories.
+
+**Пример:** После сборки devtools создаётся JAR-artifact.
+
+**Источник:** https://maven.apache.org/guides/introduction/introduction-to-the-pom.html
+
+---
+
+### Категория: Инструменты разработки
+
+#### IDE — Integrated Development Environment
+
+**Определение:** A software application that provides comprehensive facilities to computer programmers for software development.
+
+**Контекст использования:** Combines code editor, debugger, and build tools in a single interface.
+
+**Пример:** IntelliJ IDEA используется как IDE для разработки devtools.
+
+**Источник:** https://www.jetbrains.com/help/idea/
+
+---
+
+#### SDK — Software Development Kit
+
+**Определение:** A collection of software tools and libraries used to develop applications for a specific platform.
+
+**Контекст использования:** Provides APIs, libraries, and documentation for development.
+
+**Пример:** JDK используется как SDK для Java-разработки в devtools.
+
+**Источник:** https://en.wikipedia.org/wiki/Software_development_kit
+---
+
+#### Git — Git
+
+**Определение:** A distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+
+**Контекст использования:** A distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+
+**Пример:** Исходный код devtools хранится в Git-репозитории.
+
+**Источник:** https://git-scm.com/docs
+
+---
+
+#### Repository — Repository
+
+**Определение:** A storage location for software packages or source code, managed by a version control system.
+
+**Контекст использования:** Used to store, track, and manage code history.
+
+**Пример:** Проект devtools размещён в Git-repository на GitHub.
+
+**Источник:** https://git-scm.com/docs/gitglossary
+
+---
+
+#### Commit — Commit
+
+**Определение:** A snapshot of changes in a Git repository, recorded with a message and unique identifier.
+
+**Контекст использования:** Used to save logical units of work in version control.
+
+**Пример:** Добавление глоссария зафиксировано отдельным commit.
+
+**Источник:** https://git-scm.com/docs/git-commit
+
+---
+
+#### Branch — Branch
+
+**Определение:** A movable pointer to a sequence of commits, representing an independent line of development.
+
+**Контекст использования:** Allows parallel development without affecting the main codebase.
+
+**Пример:** Для DVT-12 создана отдельная branch.
+
+**Источник:** https://git-scm.com/docs/git-branch
+
+---
+
+### Категория: Процессы и практики
+
+#### Code Review — Code Review
+
+**Определение:** A systematic examination of source code intended to find and fix mistakes and improve code quality.
+
+**Контекст использования:** Performed before merging changes into the main branch.
+
+**Пример:** Pull Request devtools проходит Code Review перед merge.
+
+**Источник:** https://martinfowler.com/articles/code-review/
+
+---
+
+#### CI/CD — Continuous Integration / Continuous Delivery
+
+**Определение:** A set of practices that automate the integration, testing, and delivery of code changes.
+
+**Контекст использования:** Ensures fast and reliable software delivery.
+
+**Пример:** CI/CD запускает сборку devtools при каждом коммите.
+
+**Источник:** https://www.atlassian.com/continuous-delivery
+
+---
+
+## Вопросы по сложным терминам
+
+### Вопрос 1: [Runbook]
+
+**Задача:** [Каждый раз вижу в уроках и каждый раз забываю зачем он нужен]
+
+**Контекст:** [В уроках на платформе]
+
+**Ограничения:** [Гуглил и спрашивал у нейросетей]
+
+**Ожидаемый результат:** [Чёткое понимание термина и зачем Runbook нужен]
+
+**Критерии успеха:** [Могу объяснить другу, что такое Runbook]
+
+---
+
+### Вопрос 2: [JDK, JRE, JVM]
+
+**Задача:** [Не могу понять разницу между JDK, JRE и JVM — когда какой нужен?]
+
+**Контекст:** [Есть маленькое недопонимание разве что, а так в целом понятно, что эти определения находятся
+на разных уровнях: JDK -> JRE -> JVM, JDK содержит JRE и инструменты разработки, JRE содержит JVM и библиотеки, 
+JVM читает байт-код]
+
+**Ограничения:** [Гуглил]
+
+**Ожидаемый результат:** [чёткое понимание этих терминов]
+
+**Критерии успеха:** [могу четко объяснить эти термины другу]
 
 https://mentee-power.xl.ru/learn/MCIneBj4KkyH-GIRCspFvA/theory
 
