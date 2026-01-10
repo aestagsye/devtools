@@ -11,9 +11,8 @@ public class ProgressDemo {
         6                // запланированные часы на спринт
     );
     var progress = heshegto;
-    System.out.println("Debug: starting loop") //2.Забыт отладочный вывод
 
-    //System.out.println(progress.summary()); 3. Закомментированный код
+    System.out.println(progress.summary());
     if (progress.readyForSprint()) {
       System.out.println("Status: sprint ready");
     } else {
